@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{%url 'index'%}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Position</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{% url 'position_add' %}">Create</a>
+                    <a class="dropdown-item" href="{% url 'all_positions' %}">Show all</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Worker</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{% url 'worker_add' %}">Create</a>
+                    <a class="dropdown-item" href="{% url 'all_workers' %}">Show all</a>
+                    <a class="dropdown-item" href="{% url 'avg_workers' %}">Avg</a>
+                </div>
+            </li>
+
+        </ul>
+        <ul class="navbar-nav navbar-right">
+            {% if user.is_authenticated %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">User: {{user.username}} <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout <span class="sr-only">(current)</span></a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

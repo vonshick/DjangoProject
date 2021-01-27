@@ -1,0 +1,23 @@
+{% extends 'my_app/scheleton.html' %}
+
+{% block content %}
+    <h3 class="display-4">Positions</h3>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for worker in workers %}
+                <tr>
+                    <td>{{worker.id}}</td>
+                    <td>{{worker.name}}</td>
+                    <td>{{worker.salary}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

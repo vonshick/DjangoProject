@@ -1,0 +1,15 @@
+{% extends 'my_app/scheleton.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+    {% if user.is_authenticated %}
+
+    {% else %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-info">Login</button>
+        </form>
+    {% endif %}
+{% endblock %}
