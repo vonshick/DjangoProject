@@ -1,0 +1,19 @@
+Wymagania funkcjonalne:
+
+Użytkownik rejestruje się w aplikacji podając dane, takie jak adres email, nazwa, data urodzenia, hasło. 
+Użytkownik loguje/wylogowuje się z aplikacji.
+Użytkownik tworzy nowy turniej podając jego nazwę, datę i godzinę rozpoczęcia oraz maksymalną ilość graczy.
+Użytkownik usuwa turniej z systemu.
+Użytkownik dodaje nowych graczy i przyporządkowuje je do określonego turnieju.
+Użytkownik wpisuje wyniki pojedynków w kolejnych fazach turnieju.
+Użytkownik przegląda historyczne turnieje z określonego przedziału czasu
+
+
+Wymagania pozafunkcjonalne:
+
+Parowanie graczy w pierwszej fazie turnieju jest losowe.
+W aplikacji istnieją min. 3 grupy użytkowników różniące się uprawnieniami: Administratorzy, Użytkownicy zwykli, Użytkownicy anonimowi.
+Użytkownik anonimowy posiada uprawnienia tylko do przeglądania rozpoczętych turniejów.
+Użytkownik zwykły zarządza turniejami przez siebie utworzonymi, przy czym nie ma możliwości usuwania i edycji turnieju gdy ten już się rozpoczął.
+Administrator może wszystko :) W tym dodać nowe konto administratora.
+Rozwiązanie należy przesłać w jednym pliku w formacie zip (nazwa wg. schematu imię_nazwisko_indeks.zip).
