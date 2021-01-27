@@ -4,11 +4,10 @@ from .tournaments_view import DetailTournamentView
 from .tournaments_view import CreateTournamentView
 from .tournaments_view import UpdateTournamentView
 from .tournaments_view import DeleteTournamentView
-from .worker_view import WorkerListView
-from .worker_view import CreateWorkerView
-from .worker_view import AvgWorkersView
-from .worker_view import UpdateWorkerView
-from .worker_view import DeleteWorkerView
+from .participant_view import ParticipantListView
+from .participant_view import CreateParticipantView
+from .participant_view import UpdateParticipantView
+from .participant_view import DeleteParticipantView
 from .login_view import NewLoginView
 from .login_view import NewLogoutView
 
@@ -20,11 +19,10 @@ __all__ = [
     'CreateTournamentView',
     'UpdateTournamentView',
     'DeleteTournamentView',
-    'WorkerListView',
-    'CreateWorkerView',
+    'ParticipantListView',
+    'CreateParticipantView',
     'NewLoginView',
     'NewLogoutView',
-    'AvgWorkersView',
-    'UpdateWorkerView',
-    'DeleteWorkerView'
+    'UpdateParticipantView',
+    'DeleteParticipantView'
 ]

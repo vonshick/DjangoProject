@@ -1,25 +1,25 @@
 {% extends 'my_app/scheleton.html' %}
 
 {% block content %}
-    <h3 class="display-4">Tournaments</h3>
+    <h3 class="display-4">Participants</h3>
     <table class="table">
         <thead class="thead-dark">
             <tr>
                 <th>id</th>
                 <th>Name</th>
-                <th>Salary</th>
+                <th>Tournament</th>
                 <th></th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            {% for worker in object_list %}
+            {% for participant in object_list %}
                 <tr>
-                    <td>{{worker.id}}</td>
-                    <td>{{worker.name}}</td>
-                    <td>{{worker.salary}}</td>
-                    <td><a href="{%url 'worker_update' worker.id%}">edit</a>
-                    <td><a href="#" data-url="{%url 'worker_delete' worker.id%}" data-toggle="modal" data-target="#exampleModal">delete</a>
+                    <td>{{participant.id}}</td>
+                    <td>{{participant.name}}</td>
+                    <td>{{participant.tournament}}</td>
+                    <td><a href="{%url 'participant_update' participant.id%}">edit</a>
+                    <td><a href="#" data-url="{%url 'participant_delete' participant.id%}" data-toggle="modal" data-target="#exampleModal">delete</a>
                 </tr>
             {% endfor %}
         </tbody>
@@ -29,7 +29,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete a worker</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Delete a participant</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

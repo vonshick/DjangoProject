@@ -11,9 +11,8 @@ urlpatterns = [
     path('tournaments/<int:pk>/', DetailTournamentView.as_view(), name="tournament_detail"),
     path('tournaments/<int:pk>/delete', DeleteTournamentView.as_view(), name="tournament_delete"),
     
-    path('workers', WorkerListView.as_view(), name='all_workers'),
-    path('workers/add/', CreateWorkerView.as_view(), name="worker_add"),
-    path('workers/<int:pk>/update', UpdateWorkerView.as_view(), name="worker_update"),
-    path('workers/<int:pk>/delete', DeleteWorkerView.as_view(), name="worker_delete"),
-    path('avg_workers', AvgWorkersView.as_view(), name='avg_workers'),
+    path('participants', ParticipantListView.as_view(), name='all_participants'),
+    path('participants/add/', CreateParticipantView.as_view(), name="participant_add"),
+    path('participants/<int:pk>/update', UpdateParticipantView.as_view(), name="participant_update"),
+    path('participants/<int:pk>/delete', DeleteParticipantView.as_view(), name="participant_delete"),
 ]
