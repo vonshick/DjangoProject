@@ -1,4 +1,4 @@
-from .position_viewset import PositionViewset
+from .position_viewset import TournamentViewset
 
 
-__all__ = ['PositionViewset']
+__all__ = ['TournamentViewset']

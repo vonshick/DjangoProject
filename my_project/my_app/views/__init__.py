@@ -1,9 +1,9 @@
 from .index_view import IndexView
-from .positions_view import AllPositionView
-from .positions_view import DetailPositionView
-from .positions_view import CreatePositionView
-from .positions_view import UpdatePositionView
-from .positions_view import DeletePositionView
+from .tournaments_view import AllTournamentView
+from .tournaments_view import DetailTournamentView
+from .tournaments_view import CreateTournamentView
+from .tournaments_view import UpdateTournamentView
+from .tournaments_view import DeleteTournamentView
 from .worker_view import WorkerListView
 from .worker_view import CreateWorkerView
 from .worker_view import AvgWorkersView
@@ -15,11 +15,11 @@ from .login_view import NewLogoutView
 
 __all__ = [
     'IndexView',
-    'AllPositionView',
-    'DetailPositionView',
-    'CreatePositionView',
-    'UpdatePositionView',
-    'DeletePositionView',
+    'AllTournamentView',
+    'DetailTournamentView',
+    'CreateTournamentView',
+    'UpdateTournamentView',
+    'DeleteTournamentView',
     'WorkerListView',
     'CreateWorkerView',
     'NewLoginView',

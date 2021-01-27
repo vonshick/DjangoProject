@@ -4,4 +4,4 @@ from rest.views import *
 
 
 router = routers.DefaultRouter()
-router.register('positions', PositionViewset)
+router.register('tournaments', TournamentViewset)

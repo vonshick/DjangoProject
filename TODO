@@ -9,6 +9,10 @@ Użytkownik wpisuje wyniki pojedynków w kolejnych fazach turnieju.
 Użytkownik przegląda historyczne turnieje z określonego przedziału czasu
 
 
+Dodatkowo:
+- walidacja daty, godziny i maksymalnej ilości graczy
+
+
 Wymagania pozafunkcjonalne:
 
 Parowanie graczy w pierwszej fazie turnieju jest losowe.

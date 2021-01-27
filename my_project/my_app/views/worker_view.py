@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from my_app.models import Worker
-from my_app.models import Position
+from my_app.models import Tournament
 
 
 class WorkerListView(ListView):
@@ -20,19 +20,19 @@ class WorkerListView(ListView):
 
 class CreateWorkerView(LoginRequiredMixin, CreateView):
     model = Worker
-    fields = ('name', 'salary', 'position')
+    fields = ('name', 'salary', 'tournament')
     success_url = reverse_lazy('all_workers')
     login_url = reverse_lazy('index')
 
     def form_valid(self, form):
         salary = int(form.data['salary'])
-        position_id = form.data['position']
-        position = Position.objects.filter(id=position_id).first()
+        tournament_id = form.data['tournament']
+        tournament = Tournament.objects.filter(id=tournament_id).first()
 
-        if salary < position.min_salary or salary > position.max_salary:
+        if salary < tournament.min_salary or salary > tournament.max_salary:
             messages.error(
                 self.request,
-                'The salary must be between %d and %d' % (position.min_salary, position.max_salary)
+                'The salary must be between %d and %d' % (tournament.min_salary, tournament.max_salary)
             )
             return self.form_invalid(form)
 
@@ -45,19 +45,19 @@ class CreateWorkerView(LoginRequiredMixin, CreateView):
 
 class UpdateWorkerView(LoginRequiredMixin, UpdateView):
     model = Worker
-    fields = ('name', 'salary', 'position')
+    fields = ('name', 'salary', 'tournament')
     success_url = reverse_lazy('all_workers')
     login_url = reverse_lazy('index')
 
     def form_valid(self, form):
         salary = int(form.data['salary'])
-        position_id = form.data['position']
-        position = Position.objects.filter(id=position_id).first()
+        tournament_id = form.data['tournament']
+        tournament = Tournament.objects.filter(id=tournament_id).first()
 
-        if salary < position.min_salary or salary > position.max_salary:
+        if salary < tournament.min_salary or salary > tournament.max_salary:
             messages.error(
                 self.request,
-                'The salary must be between %d and %d' % (position.min_salary, position.max_salary)
+                'The salary must be between %d and %d' % (tournament.min_salary, tournament.max_salary)
             )
             return self.form_invalid(form)
 
@@ -82,9 +82,9 @@ class AvgWorkersView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        query = Position.objects\
+        query = Tournament.objects\
             .annotate(avg=Avg('worker__salary'))\
-            .filter(id=OuterRef('position_id'))
+            .filter(id=OuterRef('tournament_id'))
         context['workers'] = Worker.objects\
             .filter(salary__gt=Subquery(query.values('avg'))).all()
         return context

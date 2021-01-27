@@ -5,11 +5,11 @@ urlpatterns = [
     path('', NewLoginView.as_view(), name='index'),
     path('logout', NewLogoutView.as_view(), name='logout'),
     
-    path('positions', AllPositionView.as_view(), name="all_positions"),
-    path('positions/add/', CreatePositionView.as_view(), name="position_add"),
-    path('positions/<int:pk>/update', UpdatePositionView.as_view(), name="position_update"),
-    path('positions/<int:pk>/', DetailPositionView.as_view(), name="position_detail"),
-    path('positions/<int:pk>/delete', DeletePositionView.as_view(), name="position_delete"),
+    path('tournaments', AllTournamentView.as_view(), name="all_tournaments"),
+    path('tournaments/add/', CreateTournamentView.as_view(), name="tournament_add"),
+    path('tournaments/<int:pk>/update', UpdateTournamentView.as_view(), name="tournament_update"),
+    path('tournaments/<int:pk>/', DetailTournamentView.as_view(), name="tournament_detail"),
+    path('tournaments/<int:pk>/delete', DeleteTournamentView.as_view(), name="tournament_delete"),
     
     path('workers', WorkerListView.as_view(), name='all_workers'),
     path('workers/add/', CreateWorkerView.as_view(), name="worker_add"),

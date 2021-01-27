@@ -8,24 +8,24 @@ from django.urls import reverse_lazy, reverse
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from my_app.models import Position
+from my_app.models import Tournament
 from my_app import logger
 
 
-class AllPositionView(LoginRequiredMixin, ListView):
-    model = Position
+class AllTournamentView(LoginRequiredMixin, ListView):
+    model = Tournament
     login_url = reverse_lazy('index')
     # paginate_by = 10
 
     def get_context_data(self, **kwargs):
-        logger.debug('AllPositionView.get_context_data')
+        logger.debug('AllTournamentView.get_context_data')
         context = super().get_context_data(**kwargs)
         context['now'] = timezone.now()
         return context
 
 
-class DetailPositionView(LoginRequiredMixin, DetailView):
-    model = Position
+class DetailTournamentView(LoginRequiredMixin, DetailView):
+    model = Tournament
     login_url = reverse_lazy('index')
 
     def get_context_data(self, **kwargs):
@@ -34,25 +34,25 @@ class DetailPositionView(LoginRequiredMixin, DetailView):
         return context
 
 
-class CreatePositionView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
-    model = Position
-    fields = ['name', 'min_salary', 'max_salary']
+class CreateTournamentView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+    model = Tournament
+    fields = ['name', 'start_date', 'start_hour', 'participants_limit']
     success_message = "Entry was created successfully"
-    success_url = reverse_lazy('all_positions')
+    success_url = reverse_lazy('all_tournaments')
     login_url = reverse_lazy('index')
 
 
-class UpdatePositionView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
-    model = Position
-    fields = ['name', 'min_salary', 'max_salary']
+class UpdateTournamentView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+    model = Tournament
+    fields = ['name', 'start_date', 'start_hour', 'participants_limit']
     success_message = "Entry was created successfully"
-    success_url = reverse_lazy('all_positions')
+    success_url = reverse_lazy('all_tournaments')
     login_url = reverse_lazy('index')
 
 
-class DeletePositionView(LoginRequiredMixin, DeleteView):
-    model = Position
+class DeleteTournamentView(LoginRequiredMixin, DeleteView):
+    model = Tournament
     login_url = reverse_lazy('index')
 
     def get_success_url(self):
-        return reverse('all_positions')
+        return reverse('all_tournaments')

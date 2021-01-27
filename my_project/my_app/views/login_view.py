@@ -8,7 +8,7 @@ class NewLoginView(LoginView):
 
     def get_success_url(self):
         messages.success(self.request, 'A user successfully logged in')
-        return reverse_lazy('all_positions')
+        return reverse_lazy('all_tournaments')
 
 
 class NewLogoutView(LogoutView):

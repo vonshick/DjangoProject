@@ -1,4 +1,4 @@
-from .position_serializer import PositionSerializer
+from .position_serializer import TournamentSerializer
 
 
-__all__ = ['PositionSerializer']
+__all__ = ['TournamentSerializer']
