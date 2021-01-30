@@ -10,6 +10,7 @@ from .participant_view import UpdateParticipantView
 from .participant_view import DeleteParticipantView
 from .login_view import NewLoginView
 from .login_view import NewLogoutView
+from .newuser_view import CreateNewUserView
 
 
 __all__ = [
@@ -24,5 +25,6 @@ __all__ = [
     'NewLoginView',
     'NewLogoutView',
     'UpdateParticipantView',
-    'DeleteParticipantView'
+    'DeleteParticipantView',
+    'CreateNewUserView'
 ]
