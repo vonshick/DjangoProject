@@ -17,11 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 
-from rest.urls import router
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('my_app/', include('my_app.urls')),
-    path('api/', include(router.urls))
+    path('my_app/', include('my_app.urls'))
 ]
