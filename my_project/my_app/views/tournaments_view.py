@@ -10,6 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from my_app.models import Tournament
 from my_app import logger
+from my_app.filters import TournamentFilter
 
 
 class AllTournamentView(LoginRequiredMixin, ListView):
@@ -20,6 +21,7 @@ class AllTournamentView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         logger.debug('AllTournamentView.get_context_data')
         context = super().get_context_data(**kwargs)
+        context['filter'] = TournamentFilter(self.request.GET, queryset=self.get_queryset())
         context['now'] = timezone.now()
         return context
 

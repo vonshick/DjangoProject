@@ -1,7 +1,9 @@
 {% extends 'my_app/scheleton.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
     <h3 class="display-4">Tournaments</h3>
+
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -15,7 +17,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for pos in object_list %}
+            {% for pos in filter.qs %}
                 <tr>
                     <td>{{pos.id}}</td>
                     <td>{{pos.name}}</td>
@@ -28,6 +30,11 @@
             {% endfor %}
         </tbody>
     </table>
+
+    <form method="GET">
+        {{filter.form|crispy}}
+        <button type="submit", class="btn btn-primary">Search</button>
+    </form>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" data-url="" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
