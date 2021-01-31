@@ -29,6 +29,8 @@ MESSAGE_LEVEL = 10
 
 ALLOWED_HOSTS = []
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_ENGINE = 'django.contrib.sessions.backends.file'
 
 # Application definition
 

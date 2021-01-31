@@ -11,7 +11,7 @@ class CreateNewUserView(CreateView):
     success_url = reverse_lazy('index')
 
     def form_valid(self, form):
-        for field in self.fields:
+        for field in CreateNewUserView.fields:
             if(form.data[field] is None or form.data[field] == ''):
                 messages.error(
                     self.request,
@@ -19,6 +19,10 @@ class CreateNewUserView(CreateView):
                 )
                 return self.form_invalid(form)
 
+        user = form.save(commit=False)
+        user.set_password(form.data['password'])
+        user.save()
+        
         messages.success(
             self.request,
             'New user created successfully'
